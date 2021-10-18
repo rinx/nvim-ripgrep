@@ -2,6 +2,8 @@
 
 A Neovim plugin that runs ripgrep `rg` (`ag`, `pt`) asynchronously and send results into quickfix list.
 
+![demo](https://user-images.githubusercontent.com/1588935/137737370-e140e271-139a-491b-9719-9c25f8ee0880.gif)
+
 ## Installation
 
 Using packer.nvim,
@@ -16,6 +18,8 @@ use {
   end
   }
 ```
+
+This plugin requires [ripgrep](https://github.com/BurntSushi/ripgrep).
 
 ## Usage
 
