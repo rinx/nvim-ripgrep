@@ -59,7 +59,7 @@ If you want to change it, please modify the `runner` field.
 
     -- Or you can define your own search command.
     runner = function(query)
-        require('nvim-ripgrep.run').run(
+        return require('nvim-ripgrep.run').run(
             'rg',
             {
                 args = {
