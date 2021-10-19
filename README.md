@@ -81,6 +81,8 @@ If you use [trouble.nvim](https://github.com/folke/trouble.nvim), it is recommen
     open_qf_fn = require('nvim-ripgrep.extensions').trouble_open_qf,
 ```
 
+The highlight groups `RgNormal` and `RgBorder` will be used for highlighting popup window.
+
 ## License
 
 Unlicense
