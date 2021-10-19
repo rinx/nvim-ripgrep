@@ -44,6 +44,9 @@
 (defn ripgrep [term]
   (run :rg {:args [term :--vimgrep :--smart-case]}))
 
+(defn pt [term]
+  (run :pt {:args [term :--nogroup :--nocolor :--smart-case]}))
+
 (comment
   (run-async
     :rg
@@ -51,4 +54,5 @@
             :--vimgrep
             :--smart-case]})
 
-  (ripgrep :Hello))
+  (ripgrep :Hello)
+  (pt :Hello))

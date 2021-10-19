@@ -13,7 +13,7 @@ use {
   "rinx/nvim-ripgrep",
   config = function()
     require("nvim-ripgrep").setup {
-        -- configurations
+        -- your configurations here
     }
   end
   }
@@ -35,8 +35,11 @@ After search, quickfix window will be shown.
 
 ## Configurations
 
+Default:
+
 ```lua
 {
+    runner = require('nvim-ripgrep.run').ripgrep, -- grep command
     prompt = "❯ ", -- prompt
     window = {
         width = 0.8,
@@ -44,6 +47,30 @@ After search, quickfix window will be shown.
     }
     open_qf_fn = nil, -- by default, `:copen` will be called
 }
+```
+
+By default, the search command is fixed as `rg {query} --vimgrep --smart-case`.
+If you want to change it, please modify the `runner` field.
+
+```lua
+    -- Predefined `pt` search command.
+    -- `pt {query} --nogroup --nocolor --smart-case`
+    runner = require('nvim-ripgrep.run').pt,
+
+    -- Or you can define your own search command.
+    runner = function(query)
+        require('nvim-ripgrep.run').run(
+            'rg',
+            {
+                args = {
+                    '--vimgrep',
+                    '--smart-case',
+                    '--regexp',
+                    query
+                },
+            },
+        )
+    end,
 ```
 
 If you use [trouble.nvim](https://github.com/folke/trouble.nvim), it is recommended to set `Trouble quickfix` as `open_qf_fn`.
