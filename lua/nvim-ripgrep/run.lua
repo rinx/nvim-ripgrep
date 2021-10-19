@@ -53,7 +53,7 @@ local function run_async(cmd, opts)
         local f = core.get(opts, "open-qf-fn")
         return f()
       else
-        return nvim.command("copen")
+        return nil
       end
     else
       return nil
@@ -72,5 +72,9 @@ local function ripgrep(term)
   return run("rg", {args = {term, "--vimgrep", "--smart-case"}})
 end
 _2amodule_2a["ripgrep"] = ripgrep
---[[ (run-async "rg" {:args ["test" "--vimgrep" "--smart-case"]}) (ripgrep "Hello") ]]--
+local function pt(term)
+  return run("pt", {args = {term, "--nogroup", "--nocolor", "--smart-case"}})
+end
+_2amodule_2a["pt"] = pt
+--[[ (run-async "rg" {:args ["test" "--vimgrep" "--smart-case"]}) (ripgrep "Hello") (pt "Hello") ]]--
 return nil

@@ -5,4 +5,5 @@
 (defonce config {:prompt "❯ "
                  :window {:width 0.8
                           :border :rounded}
-                 :run-opts {}})
+                 :run-opts {:open-qf-fn (fn []
+                                          (nvim.command :copen))}})

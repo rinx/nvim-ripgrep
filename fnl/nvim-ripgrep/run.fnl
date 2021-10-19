@@ -31,10 +31,9 @@
                      (handle:close)
                      (->quickfix results)
                      (when (> (length results) 0)
-                       (if (core.get opts :open-qf-fn)
+                       (when (core.get opts :open-qf-fn)
                          (let [f (core.get opts :open-qf-fn)]
-                           (f))
-                         (nvim.command :copen))))))]
+                           (f)))))))]
     (vim.loop.read_start stdout onread)
     (vim.loop.read_start stderr onread)))
 

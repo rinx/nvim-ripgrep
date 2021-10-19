@@ -45,7 +45,9 @@ Default:
         width = 0.8,
         border = "rounded",
     }
-    open_qf_fn = nil, -- by default, `:copen` will be called
+    open_qf_fn = function()
+        return vim.api.nvim_command('copen')
+    end,
 }
 ```
 
